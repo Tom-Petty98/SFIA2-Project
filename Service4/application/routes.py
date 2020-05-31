@@ -1,0 +1,1 @@
+# implement logic for stories that adress a hopeful scenario vs a bad scenario
