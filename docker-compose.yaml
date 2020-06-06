@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  service1:
+    image: service1
+    build: ./Service1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+#    environment:
+#      STORYDBURI: ${STORYDBURI}
+#      SECRET_KEY: ${SECRET_KEY}
+#    deploy:
+#      replicas: 3
+  service2:
+    image: service2
+    build: ./Service2
+    ports:
+    - target: 5001
+      published: 5001
+      protocol: tcp
+  service3:
+    image: service3
+    build: ./Service3
+    ports:
+    - target: 5002
+      published: 5002
+      protocol: tcp
+  service4:
+    image: service4
+    build: ./Service4
+    ports:
+    - target: 5003
+      published: 5003
+      protocol: tcp

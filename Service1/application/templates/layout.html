@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ title }}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+               <li><a href="{{ url_for('home') }}">Create a story</a></li>
+            </ul>
+        </nav>
+    </header>
+	<h1>{{  title  }}</h1>
+	{% block body_content %}{% endblock %}
+</body>
+</html>
