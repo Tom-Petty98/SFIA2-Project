@@ -1,6 +1,45 @@
 {% extends 'layout.html' %}
 {% block body_content %}
 <body> 
-	<h3> {{ sentence }} </h3>
+	<p><b>Setting: </b>{{ keywords[0] }}  <b>Noun: </b> {{ keywords[1] }} <b>Theme: </b> {{ keywords[2] }}</p>
+	<br><br>
+	<div class='form'>
+        <form method='POST' action=''>
+            {{ story_form.hidden_tag() }}
+            {{ story_form.author.label }}
+            {{ story_form.author }}
+	        {% if story_form.author.errors %}
+            <div class="error">
+                {% for error in story_form.author.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br><br>
+            {{ story_form.title.label }}
+            {{ story_form.title }}
+	        {% if story_form.title.errors %}
+            <div class="error">
+                {% for error in story_form.title.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br><br>
+            {{ story_form.story.label }}
+            {{ story_form.story }}
+	        {% if story_form.story.errors %}
+            <div class="error">
+                {% for error in story_form.story.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <br>
+            {{ story_form.keywords }}
+            <br><br>
+            {{ story_form.submit_story}}
+        </form>
+    </div>
 </body>
 {% endblock %}
