@@ -5,8 +5,8 @@ import requests
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI']= str(getenv('STORYDBURI'))
-# app.config['SECRET_KEY'] = getenv('SECRETKEY')
-# db = SQLAlchemy(app)
+app.config['SQLALCHEMY_DATABASE_URI']= str(getenv('STORYDBURI'))
+app.config['SECRET_KEY'] = getenv('SECRETKEY')
+db = SQLAlchemy(app)
 
 from application import routes

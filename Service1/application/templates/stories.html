@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+{% for story in stories %}
+    <div>
+        <p><b> {{ story.title }} </b>by {{ story.author }}</p>
+        <p> -- {{ story.story }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
