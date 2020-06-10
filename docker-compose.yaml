@@ -7,9 +7,9 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
-#    environment:
-#      STORYDBURI: ${STORYDBURI}
-#      SECRET_KEY: ${SECRET_KEY}
+    environment:
+      STORYDBURI: ${STORYDBURI}
+      SECRETKEY: ${SECRETKEY}
 #    deploy:
 #      replicas: 3
   service2:

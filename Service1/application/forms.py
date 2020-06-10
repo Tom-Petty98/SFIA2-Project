@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, TextAreaField, SelectField
+from wtforms import StringField, SubmitField, TextAreaField, SelectField, HiddenField
 from wtforms.validators import DataRequired, Length
 # from application import db
 
@@ -20,6 +20,12 @@ class StoryForm(FlaskForm):
         validators = [
             DataRequired(),
             Length(min=2, max=1000)
+        ]
+    )
+    keywords = HiddenField('Keywords',
+        validators = [
+            DataRequired(),
+            Length(min=2, max=60)
         ]
     )
     submit_story = SubmitField('Post Story!')

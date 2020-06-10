@@ -1,6 +1,6 @@
 from flask import Flask, request
-# from flask_sqlalchemy import SQLAlchemy
-# from os import getenv
+from flask_sqlalchemy import SQLAlchemy
+from os import getenv
 import requests
 
 app = Flask(__name__)
