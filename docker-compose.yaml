@@ -1,25 +1,21 @@
 version: "3.3"
 services:
   service1:
-    image: service1
-    build: ./Service1
+    image: tpetty98/service1
     environment:
       STORYDBURI: ${STORYDBURI}
       SECRETKEY: ${SECRETKEY}
 #    deploy:
 #      replicas: 3
   service2:
-    image: service2
-    build: ./Service2
+    image: tpetty98/service2
   service3:
-    image: service3
-    build: ./Service3
+    image: tpetty98/service3
   service4:
-    image: service4
-    build: ./Service4
+    image: tpetty98/service4
 
   service_nginx:
-    image: service_nginx
+    image: tpetty98/service_nginx
     build: ./Nginx
     ports:
         - "80:80"
