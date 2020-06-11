@@ -3,10 +3,6 @@ services:
   service1:
     image: service1
     build: ./Service1
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
     environment:
       STORYDBURI: ${STORYDBURI}
       SECRETKEY: ${SECRETKEY}
@@ -15,21 +11,22 @@ services:
   service2:
     image: service2
     build: ./Service2
-    ports:
-    - target: 5001
-      published: 5001
-      protocol: tcp
   service3:
     image: service3
     build: ./Service3
-    ports:
-    - target: 5002
-      published: 5002
-      protocol: tcp
   service4:
     image: service4
     build: ./Service4
+
+  service_nginx:
+    image: service_nginx
+    build: ./Nginx
     ports:
-    - target: 5003
-      published: 5003
-      protocol: tcp
+        - "80:80"
+#    networks:
+#        - ingress
+    depends_on:
+        - service1
+        - service2
+        - service3
+        - service4
