@@ -7,13 +7,17 @@ services:
       STORYDBURI: ${STORYDBURI}
       SECRETKEY: ${SECRETKEY}
     deploy:
-      replicas: 3
+      replicas: 2
   service2:
     image: tpetty98/service2
     build: ./Service2
+    deploy:
+      replicas: 2
   service3:
     image: tpetty98/service3
     build: ./Service3
+    deploy:
+      replicas: 2
   service4:
     image: tpetty98/service4
     build: ./Service4
