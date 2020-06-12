@@ -5,15 +5,16 @@ services:
     environment:
       STORYDBURI: ${STORYDBURI}
       SECRETKEY: ${SECRETKEY}
-#    deploy:
-#      replicas: 3
+    deploy:
+      replicas: 3
   service2:
     image: tpetty98/service2
   service3:
     image: tpetty98/service3
   service4:
     image: tpetty98/service4
-
+    deploy:
+      replicas: 2
   service_nginx:
     image: tpetty98/service_nginx
     build: ./Nginx
@@ -26,3 +27,5 @@ services:
         - service2
         - service3
         - service4
+    deploy:
+      replicas: 2

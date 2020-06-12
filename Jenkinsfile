@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Setup enviroment"){
             steps{
-                sh './scripts/before_installation.sh'
+                sh './scripts/env.sh'
             }
         }
         stage("Ansible Setup"){
