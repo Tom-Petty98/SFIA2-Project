@@ -5,8 +5,8 @@ import requests
 
 @app.route('/theme', methods=['GET'])
 def theme():
-    setting = requests.get('http://sfia2-project_service2_1:5001/randomsetting')
-    noun = requests.get('http://sfia2-project_service3_1:5002/randomnoun')
+    setting = requests.get('http://service2:5001/randomsetting')
+    noun = requests.get('http://service3:5002/randomnoun')
 
     a = random.randrange(2)
 

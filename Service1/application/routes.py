@@ -6,7 +6,7 @@ import requests
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    response = requests.get('http://sfia2-project_service4_1:5003/theme')
+    response = requests.get('http://service4:5003/theme')
 # can easily use a random number generator to pick which implementation to use    
 #    print(response)
     sentence = response.text

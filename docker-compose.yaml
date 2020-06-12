@@ -1,35 +1,39 @@
-version: "3.3"
+version: "3.7"
 services:
   service1:
-    image: service1
+    image: tpetty98/service1
     build: ./Service1
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
     environment:
       STORYDBURI: ${STORYDBURI}
       SECRETKEY: ${SECRETKEY}
-#    deploy:
-#      replicas: 3
+    deploy:
+      replicas: 2
   service2:
-    image: service2
+    image: tpetty98/service2
     build: ./Service2
-    ports:
-    - target: 5001
-      published: 5001
-      protocol: tcp
+    deploy:
+      replicas: 2
   service3:
-    image: service3
+    image: tpetty98/service3
     build: ./Service3
-    ports:
-    - target: 5002
-      published: 5002
-      protocol: tcp
+    deploy:
+      replicas: 2
   service4:
-    image: service4
+    image: tpetty98/service4
     build: ./Service4
+    deploy:
+      replicas: 2
+  service_nginx:
+    image: tpetty98/service_nginx
+    build: ./Nginx
     ports:
-    - target: 5003
-      published: 5003
-      protocol: tcp
+        - "80:80"
+#    networks:
+#        - ingress
+    depends_on:
+        - service1
+        - service2
+        - service3
+        - service4
+    deploy:
+      replicas: 2
