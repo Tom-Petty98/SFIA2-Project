@@ -6,6 +6,7 @@
         <p><b> {{ story.title }} </b>by {{ story.author }}</p>
         <p> -- {{ story.story }}</p>
         <p> {{ story.keywords }}</p>
+        <a href="edit_story/{{story.id}}">Edit story</a>
         <a href="delete_story/{{story.id}}">Delete story</a>
     </div>
 {% endfor %}

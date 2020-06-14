@@ -36,16 +36,32 @@ def stories():
     storyData =Stories.query.all()
     return render_template('stories.html', title="Stories", stories=storyData)
 
+@app.route('/edit_story/<int:id>', methods=['GET', 'POST'])
+def edit_story(id):
+    story = Stories.query.filter_by(id=id).first()
+    keywords = story.keywords.split(', ')
 
-# Edit functionality
-# <a href="edit_story/{{story.id}}">Edit story</a>
-# Need to store the keywords in database likely as a string of words. This will lead to duplication of words
-# Alternatively you could use relational database
-# Table of setting, noun and theme. Story will then have 3 foreign keys (many-one relationship)
-# not part of the mvp 
+    story_form = StoryForm()
+    if story_form.validate_on_submit():
+        
+        story.author = story_form.author.data
+        story.title = story_form.title.data
+        story.story = story_form.story.data
+        story.keywords = story_form.keywords.data        
+        db.session.commit()
+        return redirect(url_for('stories'))
+
+    elif request.method == 'GET':
+        story_form.author.data = story.author
+        story_form.title.data = story.title
+        story_form.story.data = story.story
+        story_form.keywords.data = story.keywords
+
+    return render_template('edit_story.html', keywords = keywords, title = 'Edit story', story_form=story_form)
+
 
 @app.route('/delete_story/<int:id>', methods=['GET', 'POST'])
-def delete_meal(id):
+def delete_story(id):
     story = Stories.query.filter_by(id=id).first()
     db.session.delete(story)
     db.session.commit()
