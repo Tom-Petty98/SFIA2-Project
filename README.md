@@ -8,9 +8,9 @@
 1. Breif
 1. Soloution
 1. Trello board
-1. Arcitecture
+1. Database
 1. Risk Assessment
-1. Bugs
+1. Issues
 1. Testing
 1. Deployment
 1. Improvements for the future
@@ -27,4 +27,22 @@ I decided to create a website that would generate three random words. A setting 
 ### Trello board
 ![](documentation/Trello.jpg)
 
-### 
+### Database
+![](documentation/Model.jpg)
+The database used allowed users to share the stories the created. It also stored the words the were given to create the story.
+
+### Risk Assessment
+Risk Assessment
+![](documentation/Risk_assessment.jpg)
+
+### Issues
+
+### Testing
+
+### Deployment
+![](documentation/CI-CD_pipeline)
+
+### Improvements for the future
+
+### Authors
+#### By Tom Petty
