@@ -28,6 +28,7 @@ The app used Nginx for reverse proxy to allow access from only port 80. The deve
 
 ### Trello board
 ![](documentation/Trello.jpg)
+https://trello.com/b/ll66FXl5/story-site
 
 ### Database
 ![](documentation/Model.jpg)
