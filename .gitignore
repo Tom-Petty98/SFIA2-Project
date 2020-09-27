@@ -5,3 +5,9 @@ venv/
 __pycache__
 
 *.pyc
+
+.terraform
+*terraform.tfstate
+*terraform.tfstate.backup
+*terraform_0.11.13_linux_amd64.zip
+*terraform_0.12.28_linux_amd64.zip
