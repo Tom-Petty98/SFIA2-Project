@@ -7,6 +7,7 @@ __pycache__
 *.pyc
 
 .terraform
+*.tfvars
 *terraform.tfstate
 *terraform.tfstate.backup
 *terraform_0.11.13_linux_amd64.zip
