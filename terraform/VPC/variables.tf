@@ -4,12 +4,9 @@ variable "availability_zones" {
   type = "list"
 }
 
-variable "vpc_cidr" {
-  default = "15.0.0.0/16"
-}
+# these values are placholders and get overwritten by .tfvars
+variable "vpc_cidr" {}
 
 variable "subnet_cidrs_public" {
   description = "Subnet CIDRs for public subnets (length must match configured availability_zones)"
-  default = ["15.0.10.0/24", "15.0.20.0/24"]
-  type = "list"
 }

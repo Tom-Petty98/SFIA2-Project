@@ -7,6 +7,8 @@ provider "aws" {
 #contains vpc IG and subnets
 module "vpc" {
     source = "./VPC"
+    vpc_cidr = var.vpc_cidr
+    subnet_cidrs_public = var.subnet_cidrs_public
 }
 
 module "sg" {
@@ -19,4 +21,11 @@ module "ec2" {
   vpc_security_groups_ids = module.sg.sg_id
   public_subnet_ids = module.vpc.public_subnets_id
   # public_subnets = slice(var.private_subnet_cidr_blocks, 0, each.value.private_subnet_count)
+}
+
+module "rds" {
+  source = "./RDS"
+  subnet_ids = module.vpc.public_subnets_id
+  db_username = var.db_username
+  db_password = var.db_password
 }
