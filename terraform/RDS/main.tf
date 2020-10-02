@@ -4,7 +4,7 @@ resource "aws_db_subnet_group" "storysite-subnet-group" {
 }
 
 
-resource "aws_db_instance" "default" {
+resource "aws_db_instance" "storydb" {
   allocated_storage    = 20
   storage_type         = "gp2"
   engine               = "mysql"
@@ -16,4 +16,5 @@ resource "aws_db_instance" "default" {
   parameter_group_name = "default.mysql5.7"
   db_subnet_group_name = "storysite_db"
   skip_final_snapshot = true
+  depends_on = [aws_db_subnet_group.storysite-subnet-group]
 }

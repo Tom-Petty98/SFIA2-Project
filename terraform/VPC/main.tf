@@ -21,6 +21,10 @@ resource "aws_internet_gateway" "sfia2_igw" {
 
 resource "aws_route_table" "public_sfia2" {
   vpc_id = aws_vpc.sfia2_vpc.id
+    route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.sfia2_igw.id
+  }
 
   tags = {
     Name = "public_sfia2"
@@ -31,10 +35,5 @@ resource "aws_route_table_association" "a" {
   count = length(var.subnet_cidrs_public)
 
   subnet_id      = element(aws_subnet.public_sfia2.*.id, count.index)
-  route_table_id = aws_route_table.public_sfia2.id
-}
-
-resource "aws_route_table_association" "b" {
-  gateway_id     = aws_internet_gateway.sfia2_igw.id
   route_table_id = aws_route_table.public_sfia2.id
 }
